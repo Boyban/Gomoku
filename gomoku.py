@@ -109,6 +109,66 @@ class ai:
                     return t
 
     def need_defense(self, x, y):
+        if y + 1 < self.size and y + 2 < self.size and self.board[x][y + 1] == 2 and self.board[x][y + 2] == 2:
+            if y + 3 < self.size and self.board[x][y + 3] == 0:
+                self.set_status_case(x, y + 3, 2)
+                print(str(x)+","+str(y + 3))
+            elif y - 1 >= 0 and self.board[x][y - 1] == 0:
+                self.set_status_case(x, y - 1, 2)
+                print(str(x)+","+str(y - 1))
+            else:
+                return False
+            return True
+        elif y - 1 >= 0 and y - 2 >= 0 and self.board[x][y - 1] == 2 and self.board[x][y - 2] == 2:
+            if y - 3 >= 0 and self.board[x][y - 3] == 0:
+                self.set_status_case(x, y - 3, 2)
+                print(str(x)+","+str(y - 3))
+            elif y + 1 < self.size and self.board[x][y + 1] == 0:
+                self.set_status_case(x, y + 1, 2)
+                print(str(x)+","+str(y + 1))
+            else:
+                return False
+            return True
+        elif x + 1 < self.size and x + 2 < self.size and self.board[x + 1][y] == 2 and self.board[x + 2][y] == 2:
+            if x + 3 < self.size and self.board[x + 3][y] == 0:
+                self.set_status_case(x + 3, y, 2)
+                print(str(x + 3)+","+str(y))
+            elif x - 1 >= 0 and self.board[x - 1][y] == 0:
+                self.set_status_case(x - 1, y, 2)
+                print(str(x - 1)+","+str(y + 3))
+            else:
+                return False
+            return True
+        elif x - 1 >= 0 and x - 2 >= 0 and self.board[x - 1][y] == 2 and self.board[x - 2][y] == 2:
+            if x - 3 >= 0 and self.board[x - 3][y] == 0:
+                self.set_status_case(x - 3, y, 2)
+                print(str(x - 3)+","+str(y))
+            elif x + 1 < self.size and self.board[x + 1][y] == 0:
+                self.set_status_case(x + 1, y, 2)
+                print(str(x + 1)+","+str(y))
+            else:
+                return False
+            return True
+
+
+        elif x - 1 >= 0 and x + 1 < self.size and self.board[x - 1][y] == 2 and self.board[x + 1][y] == 2:
+            if x + 2 < self.size and self.board[x + 2][y] == 0:
+                self.set_status_case(x + 2, y, 2)
+                print(str(x + 2)+","+str(y))
+            elif x - 2 >= 0 and self.board[x - 2][y] == 0:
+                self.set_status_case(x - 2, y, 2)
+                print(str(x - 2)+","+str(y))
+            else:
+                return False
+        elif y - 1 >= 0 and y + 1 < self.size and self.board[x][y - 1] == 2 and self.board[x][y + 1] == 2:
+            if y + 2 < self.size and self.board[x][y + 2] == 0:
+                self.set_status_case(x, y + 2, 2)
+                print(str(x)+","+str(y + 2))
+            elif y - 2 >= 0 and self.board[x][y - 2] == 0:
+                self.set_status_case(x, y - 2, 2)
+                print(str(x)+","+str(y - 2))
+            else:
+                return False
         return False
 
     def play(self):
