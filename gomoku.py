@@ -160,6 +160,7 @@ class ai:
                 print(str(x - 2)+","+str(y))
             else:
                 return False
+            return True
         elif y - 1 >= 0 and y + 1 < self.size and self.board[x][y - 1] == 2 and self.board[x][y + 1] == 2:
             if y + 2 < self.size and self.board[x][y + 2] == 0:
                 self.set_status_case(x, y + 2, 2)
@@ -169,6 +170,7 @@ class ai:
                 print(str(x)+","+str(y - 2))
             else:
                 return False
+            return True
         return False
 
     def play(self):
