@@ -135,7 +135,7 @@ class ai:
                 print(str(x + 3)+","+str(y))
             elif x - 1 >= 0 and self.board[x - 1][y] == 0:
                 self.set_status_case(x - 1, y, 2)
-                print(str(x - 1)+","+str(y + 3))
+                print(str(x - 1)+","+str(y))
             else:
                 return False
             return True
